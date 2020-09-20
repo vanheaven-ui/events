@@ -1,11 +1,17 @@
 <section>
-  <div class="row">
-    <div class="col-md-6">
-      <h1>Welcome!</h1>
-    </div>
+  <% if signed_in? %>
+    <p>Signed in as: <%= current_user.name %></p>
+    <p>Let us list the events</p>
+  <% else %>
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Welcome!</h1>
+      </div>
 
-    <div class="col-md-6">
-      <%= render 'sessions/form' %>
+      <div class="col-md-6">
+        <%= render 'sessions/form' %>
+        <p>Don't have an account? <%= link_to 'Sign Up', new_user_path %></p>
+      </div>
     </div>
-  </div>
+  <% end %>
 </section>
