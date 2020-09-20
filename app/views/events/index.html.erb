@@ -1,7 +1,15 @@
 <div>
   <h1>All Events</h1>
+
+  <h3>Upcoming Events</h3>
   <ul>
-    <% @events.each do |event| %>
+    <% @upcoming_events.each do |event| %>
+      <li>+ <%= link_to event.name, event_path(event) %></li>
+    <% end %>
+  </ul>
+  <h3>Previous Events</h3>
+  <ul>
+    <% @previous_events.each do |event| %>
       <li>+ <%= link_to event.name, event_path(event) %></li>
     <% end %>
   </ul>
