@@ -1,0 +1,10 @@
+<%= form_with(url: '/sessions/new', local: true) do |f| %>
+  <div class="form-group">
+    <%= f.label "name:" %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Sign in' %>
+  </div>
+<% end %>
