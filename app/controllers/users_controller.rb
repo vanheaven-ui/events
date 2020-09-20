@@ -6,9 +6,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
-
-    redirect_to user_path(@user)
+    if @user.save
+      redirect_to root_url, notice: "You have signed up succesfully, please sign in"
+    else
+      render 'new', alert: "Sign up failed, Please check and try again"
+    end
   end
 
   def show
