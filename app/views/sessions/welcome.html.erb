@@ -3,7 +3,8 @@
     <p>Signed in as: <%= link_to current_user.name, user_path(current_user) %></p>
     <%= link_to "Sign Out", session_path(current_user.id),
                             method: :delete,
-                            data: { confirm: "Are you sure you want to sign out?" } %>
+                            data: { confirm: "Are you sure you want to sign out?" } %><br />
+    <%= link_to "New Event", new_event_path %>                            
     <p>Let us list the events</p>
 
   <% else %>
