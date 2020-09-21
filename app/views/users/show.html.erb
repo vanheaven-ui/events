@@ -1,14 +1,20 @@
-<div>
-  <h1><%= @user.name %> 's Profile</h1>
-  <h4><%= pluralize(@user.created_events.count, "event") %> created</h4>
-  <ul>
-    <% @user.created_events.each do |event| %>
-      <li>+ <%= link_to event.name, event_path(event) %></li>
-    <% end %>
-  </ul>
-  <h4><%= pluralize(@user.attended_events.count, "Event") %> attended</h4>
-    <% @user.attended_events do |event| %>
-      <li>+ <%= link_to event.name, event_path(event) %></li>
-    <% end %>
-  <h4>Invitations</h4>
+<div class="card w-50 mx-auto">
+  <div class="card-header text-white bg-warning">
+    <h1><%= @user.name %> 's Profile</h1>
+  </div>
+  <div class="card-body">
+    <h4><%= pluralize(@user.created_events.count, "event") %> created</h4>
+    <ul class="list-unstyled">
+      <% @user.created_events.each do |event| %>
+        <li>+ <%= link_to event.name, event_path(event) %></li>
+      <% end %>
+    </ul>
+    <h4><%= pluralize(@user.attended_events.count, "Event") %> attended</h4>
+      <ul class="list-unstyled">
+        <% @user.attended_events do |event| %>
+          <li>+ <%= link_to event.name, event_path(event) %></li>
+        <% end %>
+      </ul>
+    <h4>Invitations</h4>
+  </div>
 </div>

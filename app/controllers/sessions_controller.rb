@@ -19,5 +19,8 @@ class SessionsController < ApplicationController
     redirect_to root_url, notice: "Successfully signed out!"
   end
 
-  def welcome; end
+  def welcome
+    @upcoming_events = Event.upcoming_events
+    @previous_events = Event.previous_events
+  end
 end
