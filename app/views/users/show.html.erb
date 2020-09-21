@@ -1,6 +1,7 @@
 <div class="card w-50 mx-auto">
   <div class="card-header text-white bg-warning">
     <h1><%= @user.name %> 's Profile</h1>
+    <%= link_to "Edit profile", edit_user_path(@user) %>
   </div>
   <div class="card-body">
     <h4><%= pluralize(@user.created_events.count, "event") %> created</h4>
