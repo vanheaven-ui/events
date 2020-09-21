@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md navbar-light bg-info">
+  <div class="container-fluid">
+    <%= link_to "Private Events", root_path, class: "navbar-brand" %>
+    <ul class="navbar-nav">
+      <li class="navbar-item">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <% if signed_in? %>
+        <li class="navbar-item">
+          <%= link_to "Created Events", user_path(current_user), class: "nav-link" %>
+        </li>
+        <li class="navbar-item">
+          <%= link_to "All Events", events_path, class: "nav-link" %>
+        </li>
+      <% end %>
+      <li class="navbar-item">
+          <%= link_to "New Event", new_event_path, class: "btn btn-light" %>
+      </li>
+    </ul>
+
+    <div class="navbar-right ml-auto">
+      <% if signed_in? %>
+        <%= link_to "Sign Out", sign_out_path, method: :delete, class: "btn btn-danger"%>
+      <% end %>
+    </div>
+  </div>
+</nav>

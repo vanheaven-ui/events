@@ -11,12 +11,17 @@
 
   <body>
     <% if flash[:notice] %>
-      <span class="alert alert-success"><%= notice%></span>
+      <div class="text-center">
+        <span class="alert alert-success"><%= notice%></span>
+      </div>
     <% end %>
 
     <% if flash[:alert] %>
-      <span class="alert alert-danger"><%= alert %></span>
+      <div class="text-center">
+        <span class="alert alert-danger"><%= alert %></span>
+      </div>
     <% end %>
+    <%= render 'users/nav' %>
     <%= yield %>
   </body>
 </html>

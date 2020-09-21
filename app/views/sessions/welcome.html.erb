@@ -1,22 +1,30 @@
-<section>
+<section class="home-page">
   <% if signed_in? %>
-    <p>Signed in as: <%= link_to current_user.name, user_path(current_user) %></p>
-    <%= link_to "Sign Out", session_path(current_user.id),
-                            method: :delete,
-                            data: { confirm: "Are you sure you want to sign out?" } %><br />
-    <%= link_to "New Event", new_event_path %><br /> 
-    <%= link_to "All Events", events_path %>                           
-    <p>Let us list the events</p>
+    <div class="card w-75 mx-auto mt-3">
+      <p>Signed in as: <%= link_to current_user.name, user_path(current_user) %></p>
+      <%= link_to "Sign Out", session_path(current_user.id),
+                              method: :delete,
+                              data: { confirm: "Are you sure you want to sign out?" } %><br />
+      <%= link_to "New Event", new_event_path %><br /> 
+      <%= link_to "All Events", events_path %>                           
+      <p>Let us list the events</p>
+    </div>
     
 
   <% else %>
-    <div class="row">
-      <div class="col-md-6">
-        <h1>Welcome!</h1>
-      </div>
-      <div class="col-md-6">
-        <%= render 'sessions/form' %>
-        <p>Don't have an account? <%= link_to 'Sign Up', new_user_path %></p>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-6 border pt-3">
+          <div class="card text-center border-0">
+            <h1>Welcome!</h1>
+          </div>
+        </div>
+        <div class="col-md-6 border pt-3">
+          <div class="card border-0">
+            <%= render 'sessions/form' %>
+            <p class="mt-2 pl-3">Don't have an account? <%= link_to 'Sign Up', new_user_path %></p>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
