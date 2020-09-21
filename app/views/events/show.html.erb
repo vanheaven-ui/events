@@ -4,12 +4,12 @@
     on <%= @event.created_at %>
   </p>
   <div class="card-header text-white bg-dark d-flex justify-content-between">
-    <h2>Event <%= @event.name %><%= render 'events/badge' %></h2>   
+    <h2>Event:- <%= @event.name %><%= render 'events/badge' %></h2>   
   </div>
   <div class="card-body">
-    <p>Event Description: <br /><%= @event.description %></p>
-    <p>Date: <%= @event.date %></p>
-    <p>Location: <%= @event.location%></p>
+    <h4 class="mb-2">Event Description: </h4><%= @event.description %>
+    <p class="mt-3"><strong>Date: </strong><%= @event.date %></p>
+    <p><strong>Location: </strong><%= @event.location%></p>
 
     <h4><%= pluralize(@event.event_attendees.count, "Attendee") %></h4>
     <ul>
