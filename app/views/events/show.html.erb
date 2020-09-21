@@ -3,8 +3,8 @@
     <strong>Created By:</strong> <%= @event.creator.name %>
     on <%= @event.created_at %>
   </p>
-  <div class="card-header text-white bg-dark">
-    <h2>Event <%= @event.name %></h2>
+  <div class="card-header text-white bg-dark d-flex justify-content-between">
+    <h2>Event <%= @event.name %><%= render 'events/badge' %></h2>   
   </div>
   <div class="card-body">
     <p>Event Description: <br /><%= @event.description %></p>

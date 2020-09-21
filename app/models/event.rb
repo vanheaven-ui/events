@@ -5,4 +5,8 @@ class Event < ApplicationRecord
 
   scope :upcoming_events, -> { where("date > ?", Date.today).order("date DESC") }
   scope :previous_events, -> { where("date < ?", Date.today).order("date DESC") }
+
+  def past?
+    date < Date.today
+  end
 end

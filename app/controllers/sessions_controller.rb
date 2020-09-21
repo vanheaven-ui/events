@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
       redirect_to root_url, notice: "Successfully signed in, cheers!"
     else
-      render 'new', alert: "Oops! cannot sign in, check and try again or sign up"
+      redirect_to root_path, alert: "Oops! cannot sign in, check and try again or sign up"
     end
   end
 
