@@ -9,12 +9,12 @@
               <p>
                 <strong>Created By: </strong>
                 <%= event.creator.name %> on 
-                <%= event.created_at %>
+                <%= event.created_at.strftime('%a, %d-%b-%Y') %>
               </p>
               <h4>Event: <%= event.name %></h4>
             </li>
             <li class="list-group-item">
-              <span><strong>Happening On: </strong></span><%= event.date %>
+              <span><strong>Happening On: </strong></span><%= event.date.strftime('%a, %d-%b-%Y') %>
             </li>
             <li class="list-group-item mb-3">
               <span><strong>Location: </strong></span><%= event.location %>
@@ -32,12 +32,12 @@
               <p>
                 <strong>Created By: </strong>
                 <%= event.creator.name %> on 
-                <%= event.created_at %>
+                <%= event.created_at.strftime('%a, %d-%b-%Y') %>
               </p>
               <h4>Event: <%= event.name %></h4>
             </li>
             <li class="list-group-item">
-              <span><strong>Happening On: </strong></span><%= event.date %>
+              <span><strong>Happening On: </strong></span><%= event.date.strftime('%a, %d-%b-%Y') %>
             </li>
             <li class="list-group-item mb-3">
               <span><strong>Location: </strong></span><%= event.location %>
