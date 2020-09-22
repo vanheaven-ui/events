@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def new
     @user = User.new
   end
@@ -7,9 +6,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_url, notice: "You have signed up succesfully, please sign in"
+      redirect_to root_url, notice: 'You have signed up succesfully, please sign in'
     else
-      render 'new', alert: "Sign up failed, Please check and try again"
+      render 'new', alert: 'Sign up failed, Please check and try again'
     end
   end
 
@@ -25,9 +24,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
 
-      redirect_to user_path(@user), notice: "Details updated successfully"
+      redirect_to user_path(@user), notice: 'Details updated successfully'
     else
-      render 'edit', alert: "Cannot update, check your entry"
+      render 'edit', alert: 'Cannot update, check your entry'
     end
   end
 
