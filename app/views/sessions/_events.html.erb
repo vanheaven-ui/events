@@ -4,7 +4,7 @@
       <h3 class="text-white bg-dark text-center">Upcoming Events</h3>
       <ul class="list-group">
         <% @upcoming_events.each do |event| %>
-          <%= link_to event_path(event), class: "text-secondary" do %>
+          <%= link_to event_path(event), class: "text-secondary", title: "Click to see more..." do %>
             <li class="list-group-item list-group-item-success">
               <p>
                 <strong>Created By: </strong>
@@ -27,7 +27,7 @@
       <h3 class="text-white bg-dark text-center">Previous Events</h3>
       <ul class="list-group">
         <% @previous_events.each do |event| %>
-          <%= link_to event_path(event), class: "text-secondary" do %>
+          <%= link_to event_path(event), class: "text-secondary", title: "Click to see more..." do %>
             <li class="list-group-item list-group-item-danger">
               <p>
                 <strong>Created By: </strong>
