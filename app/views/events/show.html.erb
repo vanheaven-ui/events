@@ -1,6 +1,6 @@
 <div class="card w-50 mx-auto">
   <p class="p-3 mb-0">
-    <strong>Created By:</strong> <%= @event.creator.name %>
+    <strong>Created By:</strong> <%= link_to @event.creator.name, user_path(current_user) %>
     on <%= @event.created_at.strftime('%a, %d-%b-%Y') %>
   </p>
   <div class="card-header text-white bg-dark d-flex justify-content-between">
