@@ -10,13 +10,12 @@
         <li>+ <%= link_to event.name, event_path(event) %></li>
       <% end %>
     </ul>
-    <h4><%= pluralize(@user.attended_events.count, "Event") %> attended</h4>
-      <ul class="list-unstyled">
-        <% @user.attended_events do |event| %>
-          <li>+ <%= link_to event.name, event_path(event) %></li>
-        <% end %>
-      </ul>
-    <h4>Invitations</h4>
+    <h4><%= pluralize(@user.attended_events.count, "Event") %> as Attendee</h4>
+    <ul class="list-unstyled">
+      <% @user.attended_events do |event| %>
+        <li>+ <%= link_to event.name, event_path(event) %></li>
+      <% end %>
+    </ul>
   </div>
   <%= link_to "Home", root_url, class: "pl-3" %>
 </div>

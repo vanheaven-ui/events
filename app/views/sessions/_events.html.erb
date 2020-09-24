@@ -19,6 +19,7 @@
               <li class="list-group-item">
                 <span><strong>Location: </strong></span><%= event.location %>
               </li>
+              <%= link_to "Attend", event_path(event), class: "btn btn-success" %>
             </ul>
           <% end %>
         <% end %>

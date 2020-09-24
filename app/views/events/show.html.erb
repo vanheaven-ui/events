@@ -17,7 +17,7 @@
         <li><%= link_to attendee.name, user_path(attendee) %></li>
       <% end %>
     </ul>
-
+    <%= render 'events/attend' %>
     <%= link_to 'Home', root_path %>
   </div>
 </div>
