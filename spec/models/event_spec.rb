@@ -1,19 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  let (:event) { Event.new(name: "Ezeko", description: "this is working", 
-    date: "2020-09-20 00:00:00", location: "Virtual", 
-    created_at: nil, updated_at: nil, creator_id: 1) }
-  let (:event1) { Event.new(name: 'Rspec test', description: 'doing tests', 
-    date: '2020-09-30', location: 'Virtual', creator_id: 1) }
-  let (:event2) { Event.new(name: nil, description: 'doing tests', 
-    date: '2020-09-30', location: 'Virtual', creator_id: 1) }
-  let (:event3) { Event.new(name: 'Rspec test', description: nil, 
-    date: '2020-09-30', location: 'Virtual', creator_id: 1) }
-  let (:event4) { Event.new(name: 'Rspec test', description: 'doing tests', 
-    date: nil, location: 'Virtual', creator_id: 1) }
-  let (:event5) { Event.new(name: 'Rspec test', description: 'doing tests', 
-    date: '2020-09-20', location: nil, creator_id: 1) }
+  let(:event) do
+    Event.new(name: 'Ezeko', description: 'this is working', 
+              date: '2020-09-20 00:00:00', location: 'Virtual', creator_id: 1)
+  end
+  let(:event1) do
+    Event.new(name: 'Rspec test', description: 'doing tests',
+              date: '2020-09-30', location: 'Virtual', creator_id: 1)
+  end
+  let(:event2) do
+    Event.new(name: nil, description: 'doing tests',
+              date: '2020-09-30', location: 'Virtual', creator_id: 1)
+  end
+  let(:event3) do
+    Event.new(name: 'Rspec test', description: nil,
+              date: '2020-09-30', location: 'Virtual', creator_id: 1)
+  end
+  let(:event4) do
+    Event.new(name: 'Rspec test', description: 'doing tests',
+              date: nil, location: 'Virtual', creator_id: 1)
+  end
+  let(:event5) do
+    Event.new(name: 'Rspec test', description: 'doing tests',
+              date: '2020-09-20', location: nil, creator_id: 1)
+  end
 
   context 'has valid attributes' do
     it 'is valid' do

@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let (:user1) { User.new(name: "DePaul") }
-  let (:user2) { User.new(name: nil) }
+  let(:user1) { User.new(name: 'DePaul') }
+  let(:user2) { User.new(name: nil) }
   context 'with valid attributes' do
     it 'is valid' do
-      expect(user1).to be_valid 
+      expect(user1).to be_valid
     end
   end
 
@@ -15,11 +15,10 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "Associations" do
+  describe 'Associations' do
     it 'has_many created events' do
       e = User.reflect_on_association(:created_events)
       expect(e.macro).to eq :has_many
     end
   end
-
 end
