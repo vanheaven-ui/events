@@ -2,32 +2,32 @@
   <div class="row">
     <div class="col-md-6">
       <h3 class="text-white bg-dark text-center">Upcoming Events</h3>
-      <ul class="list-group">
         <% @upcoming_events.each do |event| %>
           <%= link_to event_path(event), class: "text-secondary", title: "Click to see more..." do %>
-            <li class="list-group-item list-group-item-success">
-              <p>
-                <strong>Created By: </strong>
-                <%= event.creator.name %> on 
-                <%= event.created_at.strftime('%a, %d-%b-%Y') %>
-              </p>
-              <h4>Event: <%= event.name %></h4>
-            </li>
-            <li class="list-group-item">
-              <span><strong>Happening On: </strong></span><%= event.date.strftime('%a, %d-%b-%Y') %>
-            </li>
-            <li class="list-group-item mb-3">
-              <span><strong>Location: </strong></span><%= event.location %>
-            </li>
+            <ul class="list-group shadow  mb-3">
+              <li class="list-group-item list-group-item-success">
+                <p>
+                  <strong>Created By: </strong>
+                  <%= event.creator.name %> on 
+                  <%= event.created_at.strftime('%a, %d-%b-%Y') %>
+                </p>
+                <h4>Event: <%= event.name %></h4>
+              </li>
+              <li class="list-group-item">
+                <span><strong>Happening On: </strong></span><%= event.date.strftime('%a, %d-%b-%Y') %>
+              </li>
+              <li class="list-group-item">
+                <span><strong>Location: </strong></span><%= event.location %>
+              </li>
+            </ul>
           <% end %>
         <% end %>
-      </ul>
     </div>
     <div class="col-md-6">
       <h3 class="text-white bg-dark text-center">Previous Events</h3>
-      <ul class="list-group">
-        <% @previous_events.each do |event| %>
-          <%= link_to event_path(event), class: "text-secondary", title: "Click to see more..." do %>
+      <% @previous_events.each do |event| %>
+        <%= link_to event_path(event), class: "text-secondary", title: "Click to see more..." do %>
+          <ul class="list-group shadow  mb-3">
             <li class="list-group-item list-group-item-danger">
               <p>
                 <strong>Created By: </strong>
@@ -39,12 +39,12 @@
             <li class="list-group-item">
               <span><strong>Happening On: </strong></span><%= event.date.strftime('%a, %d-%b-%Y') %>
             </li>
-            <li class="list-group-item mb-3">
+            <li class="list-group-item">
               <span><strong>Location: </strong></span><%= event.location %>
             </li>
-          <% end %>
+          </ul>
         <% end %>
-      </ul>
+      <% end %>
     </div>
   </div>
 </div>
