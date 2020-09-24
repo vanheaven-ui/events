@@ -6,6 +6,9 @@ class Event < ApplicationRecord
   scope :upcoming_events, -> { where('date >= ?', Date.today).order('date DESC') }
   scope :previous_events, -> { where('date < ?', Date.today).order('date DESC') }
 
+  validates :name, :description, :date, :location,
+            presence: true
+
   def past?
     date < Date.today
   end

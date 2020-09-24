@@ -12,12 +12,23 @@
   <% else %>
     <div class="container mt-3">
       <div class="row">
-        <div class="col-md-6 border pt-3">
+        <div class="col-md-6 pt-3 bg-img">
           <div class="card text-center border-0">
-            <h1>Welcome!</h1>
+            <div class="card-body border">
+              <h1>Welcome!</h1>
+              <h5 class="text-muted">JOIN THE PLATFORM AND HAVE FUN</h5>
+              <div class="card-text pt-2">
+                This platform makes it possible to see events created and scheduled by users. 
+                All one has to do is sign up to become a user and boom!, 
+                you can view events created by other users. <strong>Note:</strong> It's at 
+                the user's discretion to attend any event appealing to them.
+                <em>You can signup to create your own account or you can sign in using the default test signin</em>
+              </div>
+            </div>
+
           </div>
         </div>
-        <div class="col-md-6 border pt-3">
+        <div class="col-md-6 pt-3">
           <div class="card border-0">
             <%= render 'sessions/form' %>
             <p class="mt-2 pl-3">Don't have an account? <%= link_to 'Sign Up', new_user_path %></p>

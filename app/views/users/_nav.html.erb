@@ -17,7 +17,7 @@
 
     <div class="navbar-right ml-auto">
       <% if signed_in? %>
-        <span classs="text_secondary">Signed in as: </span>
+        <span class="text_secondary">Signed in as: </span>
         <%= link_to current_user.name, user_path(current_user), class: "btn btn-outline-light" %>
         <%= link_to "Sign Out", sign_out_path, method: :delete, class: "btn btn-danger"%>
       <% end %>
