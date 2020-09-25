@@ -19,6 +19,7 @@ This project is about building an application where users can create and schedul
 <a href="#ins">Installations</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#usage">Usage</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#app">App</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#tests">Testing</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#with">Built With</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#author">Author</a>
 
@@ -30,7 +31,7 @@ This project involves creating a simple ruby on rails application with a simple 
 Before writing code, the the following constituted the blueprint. 
 
 ### Data Modelling
-Data modelling was the first step and is described as below for this project:
+Data modelling was the first step and is described in the associations below:
 
 #### User Model
 * ``has_many created_events with foreign_key as creator_id and class_name as User``
@@ -65,7 +66,7 @@ To use the code in this repository, follow the steps in this section:
 - Rails version ``Rails 6.0.3.3.``
 
 ### 🔨 Setup
-First get a copy of project on your computer:
+First get a copy of the project on your computer:
 
 - Clone or download the repository to a local directory on your computer by following the Github instructions at [Github clone/download repository](https://docs.github.com/en/enterprise/2.13/user/articles/cloning-a-repository).
 
@@ -79,10 +80,32 @@ If you don't meet the above preliquisites, then:
 ###  App <a name = "app"></a>
 With the installations above complete, you are set to use the code and view the application built in this repository. Follow these simple steps:
 
-- Change directory into the directory where you cloned the repository. Forexample ``vanheaven@vanheaven-VirtualBox:~/Microverse-projects$ cd private-event
-``
-- run ``rails s`` or ``rails server`` in the terminal to start the server.
-- Once the server starts(Might take about 3-5 minutes), you can access the application by typing     localhost:3000 in your browser and striking ``Enter``.
+- Change directory into the directory where you cloned the repository. Forexample ``vanheaven@vanheaven-VirtualBox:~/Microverse-projects$ cd private-event.``
+- Run ``bundle install`` in the terminal to install gems and their dependencies.
+- Run ``rails db:migrate`` to update the database.
+- Run ``rails s`` or ``rails server`` in the terminal to start the server.
+- Once the server starts(Might take about 3-5 minutes), you can access the application by typing localhost:3000 in your browser and striking ``Enter``.
+
+## Testing <a name = "tests"></a>
+The tests in this repository were written uing Rspec and capybara. So to run these tests successfully on your computer, follow the steps below;
+* Crosscheck to make sure that your Gemfile has _**rails-rspec**_ in the development block and _**capybara**_ in the test block. See this example:
+   ```<pre>
+    group :development do
+      gem 'listen', '~> 3.2'
+      gem 'web-console', '>= 3.3.0'
+      gem 'database_cleaner'
+      gem 'rspec-rails'
+      gem 'spring'
+      gem 'spring-watcher-listen', '~> 2.0.0'
+    end
+
+    group :test do
+      gem 'capybara', '>= 2.15'
+      gem 'selenium-webdriver'
+      gem 'webdrivers'
+    end
+ * Follow [SettingUp RSpec and Capybara](https://madeintandem.com/blog/setting-up-rspec-and-capybara-in-rails-5-for-testing/) guide to fully setup rails and capybara.
+ * Then run ``rspec`` in the terminal.
 
 ## ✒️  Authors <a name = "author"></a>
 
@@ -97,7 +120,7 @@ With the installations above complete, you are set to use the code and view the 
 
 Contributions, issues and feature requests are welcome!
 
-- To create an issue, visit the [issues page](https://github.com/vanheaven-ui/members-only/) and create a new issue.
+- To create an issue, visit the [issues page](https://github.com/vanheaven-ui/events/issues) and create a new issue.
 - To contribute to the code base, follow the steps below:
   1. Fork this repository to your remote respository by clicking the Fork button in this repository.
   2. Clone this repository to a directory on your computer by following Github guidelines.
