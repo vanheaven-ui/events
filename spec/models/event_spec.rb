@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   let(:event) do
-    Event.new(name: 'Ezeko', description: 'this is working', 
+    Event.new(name: 'Ezeko', description: 'this is working',
               date: '2020-09-20 00:00:00', location: 'Virtual', creator_id: 1)
   end
   let(:event1) do
