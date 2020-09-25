@@ -1,5 +1,6 @@
 <% unless @event.past? %>
   <%= form_with(url: '/attend', local: true) do |f| %>
+    <%= f.hidden_field :event_id, class: :form_control, value: :event_id %>
     <div class="actions text-center">
       <%= f.submit 'Confirm Attendance', class: "btn btn-primary" %>
     </div>
