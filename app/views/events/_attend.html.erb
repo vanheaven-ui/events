@@ -1,3 +1,7 @@
 <% unless @event.past? %>
-  <p class="text-center"><%= link_to 'Confirm Attendance', '#', class: "btn btn-primary" %></p>
+  <%= form_with(url: '/attend', local: true) do |f| %>
+    <div class="actions text-center">
+      <%= f.submit 'Confirm Attendance', class: "btn btn-primary" %>
+    </div>
+  <% end %>
 <% end %>
