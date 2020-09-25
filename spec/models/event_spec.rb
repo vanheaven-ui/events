@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   let(:event) do
-    Event.new(name: 'Ezeko', description: 'this is working',
-              date: '2020-09-20 00:00:00', location: 'Virtual', creator_id: 1)
+    Event.new(name: "Rspec tests", description: "Doing tests", 
+              date: "2020-09-20 12:06:29", location: "Virtual", 
+              created_at: nil, updated_at: nil, creator_id: 2)
   end
   let(:event1) do
     Event.new(name: 'Rspec test', description: 'doing tests',
@@ -14,7 +15,7 @@ RSpec.describe Event, type: :model do
               date: '2020-09-30', location: 'Virtual', creator_id: 1)
   end
   let(:event3) do
-    Event.new(name: 'Rspec test', description: nil,
+    Event.new(name: 'Rspec test', description: 'This is plain text',
               date: '2020-09-30', location: 'Virtual', creator_id: 1)
   end
   let(:event4) do
@@ -26,30 +27,6 @@ RSpec.describe Event, type: :model do
               date: '2020-09-20', location: nil, creator_id: 1)
   end
 
-  context 'has valid attributes' do
-    it 'is valid' do
-      expect(event).to be_valid
-    end
-  end
-
-  context 'has invalid attributes' do
-    it 'is invalid when name is invalid' do
-      expect(event2).to be_valid
-    end
-
-    it 'is invalid when name is invalid' do
-      expect(event3).to be_valid
-    end
-
-    it 'is invalid when name is invalid' do
-      expect(event4).to be_valid
-    end
-
-    it 'is invalid when name is invalid' do
-      expect(event5).to be_valid
-    end
-  end
-
   describe 'Associations' do
     it 'should belong to creator' do
       c = Event.reflect_on_association(:creator)
@@ -59,6 +36,30 @@ RSpec.describe Event, type: :model do
     it 'shoud have many event_attendees' do
       a = Event.reflect_on_association(:event_attendees)
       expect(a.macro).to eq :has_many
+    end
+  end
+
+  context 'has valid attributes' do
+    it 'is valid' do
+      expect(event.valid?).to eq true
+    end
+  end
+
+  context 'has invalid attributes' do
+    it 'is invalid when name is invalid' do
+      expect(event2.valid?).to eq false
+    end
+
+    it 'is invalid when name is invalid' do
+      expect(event3.valid?).to eq false
+    end
+
+    it 'is invalid when name is invalid' do
+      expect(event4.valid?).to eq false
+    end
+
+    it 'is invalid when name is invalid' do
+      expect(event5.valid?).to eq false
     end
   end
 
