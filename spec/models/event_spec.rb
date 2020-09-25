@@ -1,30 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
+  let(:user) { User.create(name: "John Doe") }
   let(:event) do
-    Event.new(name: "Rspec tests", description: "Doing tests", 
-              date: "2020-09-20 12:06:29", location: "Virtual", 
-              created_at: nil, updated_at: nil, creator_id: 2)
+    user.created_events.new(name: "Rspec tests", description: "Doing tests", 
+              date: "2020-09-20 12:06:29", location: 'virtual')
   end
   let(:event1) do
-    Event.new(name: 'Rspec test', description: 'doing tests',
-              date: '2020-09-30', location: 'Virtual', creator_id: 1)
+    user.created_events.new(name: nil, description: 'doing tests',
+              date: '2020-09-30', location: 'Virtual')
   end
   let(:event2) do
-    Event.new(name: nil, description: 'doing tests',
-              date: '2020-09-30', location: 'Virtual', creator_id: 1)
+    user.created_events.new(name: "Rspec tests", description: nil, 
+              date: "2020-09-20 12:06:29", location: 'virtual')
   end
   let(:event3) do
-    Event.new(name: 'Rspec test', description: 'This is plain text',
-              date: '2020-09-30', location: 'Virtual', creator_id: 1)
+    user.created_events.new(name: "Rspec tests", description: "Doing tests", 
+              date: nil, location: 'virtual')
   end
   let(:event4) do
-    Event.new(name: 'Rspec test', description: 'doing tests',
-              date: nil, location: 'Virtual', creator_id: 1)
-  end
-  let(:event5) do
-    Event.new(name: 'Rspec test', description: 'doing tests',
-              date: '2020-09-20', location: nil, creator_id: 1)
+    user.created_events.new(name: "Rspec tests", description: "Doing tests", 
+              date: "2020-09-20 12:06:29", location: nil)
   end
 
   describe 'Associations' do
@@ -46,20 +42,20 @@ RSpec.describe Event, type: :model do
   end
 
   context 'has invalid attributes' do
-    it 'is invalid when name is invalid' do
+    it 'is invalid when name is falsy' do
+      expect(event1.valid?).to eq false
+    end
+
+    it 'is invalid when description is falsy' do
       expect(event2.valid?).to eq false
     end
 
-    it 'is invalid when name is invalid' do
+    it 'is invalid when date is falsy' do
       expect(event3.valid?).to eq false
     end
 
-    it 'is invalid when name is invalid' do
+    it 'is invalid when location is falsy' do
       expect(event4.valid?).to eq false
-    end
-
-    it 'is invalid when name is invalid' do
-      expect(event5.valid?).to eq false
     end
   end
 
