@@ -11,9 +11,7 @@ This project is about building an application where users can create and schedul
 
 ## Index Page Screenshot
 
-Here is a screenshot of the index page with a logged in member.
-
-<img src="/app/assets/images/screenshot.jpeg" alt="screenshot">
+<img src="/app/assets/images/screenshot.png" alt="screenshot">
 
 ## Content
 
@@ -26,44 +24,64 @@ Here is a screenshot of the index page with a logged in member.
 
 
 ## About <a name = "about"></a>
-This project involves creating a simple ruby on rails application with a simple user sign in by name authenticable against user sign up. Once a user is able to sign in to the application, a list of events curated by whether they are upcoming or they have ended is presented to the user. The user can click each event to see more details about it. Mores so, the user can edit their profile and they can see how many events they have created and how many events they have attended. A user is also able to create their own eventby clicking a navigation item.
+This project involves creating a simple ruby on rails application with a simple user sign in by name. The sign in is authenticable against user sign up. Once a user is able to sign into the application, a list of events curated by whether they are upcoming or they have ended is presented to the user. The user can click each event to see more details about it. More so, the user can edit their profile and they can see how many events they have created and how many events they have attended. A user is also able to create their own events by clicking the ``New Event`` item in the top navigation bar.
+
+## Pre-coding Planning
+Before writing code, the the following constituted the blueprint. 
+
+### Data Modelling
+Data modelling was the first step and is described as below for this project:
+
+#### User Model
+* ``has_many created_events with foreign_key as creator_id and class_name as User``
+* ``has_many event_attendings``
+* ``has_many attended_events through event_attendings joining table where source is event``
+
+#### Event Model
+* ``belongs_to creator where class-name is User``
+* ``has_many event_attendings``
+* ``has_many event_attendees through event_attendings joining table where source is user``
+
+#### Event_Attending Model
+* ``belongs_to User``
+* ``belongs_to Event``
 
 ## 🔧 Built with<a name = "with"></a>
 
 - ruby 2.7.0p0 (2019-12-25 revision 647ee6f091)
-- rails 5.2.3
+- Rails 6.0.3.3
 - Gems/Dependencies
-  - [ ] Bootstrap (5.0.0.alpha1)
-  - [ ] Devise (4.7.2)
-
-## Live Demo
-Here is a link for live demostration
-
-[Click for app demo!]()
+  - [ ] rubocop (0.81.0)
+  - [ ] rspec-rails (4.0.1)
+  - [ ] capybara (3.33.0)
 
 ## Usage <a name = "usage"></a>
 To use the code in this repository, follow the steps in this section:
 
 ### 🔨 Preliquisites
- You should have the following inorder to run the code contained herein.
-- Ruby version ruby 2.7.0p0 (2019-12-25 revision 647ee6f091). 
-- Rails version rails 5.2.3.
+ You should have the following packages installed on your computer inorder to run the code contained herein.
+
+- Ruby version ``ruby 2.7.0p0 (2019-12-25 revision 647ee6f091)``. 
+- Rails version ``Rails 6.0.3.3.``
 
 ### 🔨 Setup
 First get a copy of project on your computer:
-- Clone or download the repository to a local directory on your computer by following the Github instructions.
+
+- Clone or download the repository to a local directory on your computer by following the Github instructions at [Github clone/download repository](https://docs.github.com/en/enterprise/2.13/user/articles/cloning-a-repository).
 
 ### 🛠 Installing <a name = "ins"></a>
-Once you have a local copy of the entire project on your computer and you dont meet the above preliquisites, then:
+Once you have a local copy of the entire project on your computer,
+If you don't meet the above preliquisites, then:
 
-- Visit [Ruby Installations](https://www.ruby-lang.org/en/documentation/installation/) to install ruby version  2.7.0
-- Visit [Rails installations guide](https://guides.rubyonrails.org/v5.0/getting_started.html) to install rails version 5.2.3
+- Visit [Ruby Installations](https://www.ruby-lang.org/en/documentation/installation/) to install ruby version  2.7.0.
+- Visit [Rails installations guide](https://guides.rubyonrails.org/v5.0/getting_started.html) to install rails version 6.0.3.3.
 
 ###  App <a name = "app"></a>
 With the installations above complete, you are set to use the code and view the application built in this repository. Follow these simple steps:
 
-- Change directory into the directory where you cloned the repository.
-- run ``rails s`` or ``rails server`` to start the server.
+- Change directory into the directory where you cloned the repository. Forexample ``vanheaven@vanheaven-VirtualBox:~/Microverse-projects$ cd private-event
+``
+- run ``rails s`` or ``rails server`` in the terminal to start the server.
 - Once the server starts(Might take about 3-5 minutes), you can access the application by typing     localhost:3000 in your browser and striking ``Enter``.
 
 ## ✒️  Authors <a name = "author"></a>
@@ -96,7 +114,7 @@ And your reward awaits in heaven.
 Give a ⭐️ if you like this project!
 
 ## :clap: Acknowledgements
-[The Odin project Guide:](https://www.theodinproject.com/courses/ruby-on-rails/lessons/authentication)<br />
+[The Odin project Guide:](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations)<br />
 [Microverse guide:](https://microverse.pathwright.com/library/fast-track-curriculum/69047/path/step/49722686/)
 
 
