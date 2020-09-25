@@ -6,10 +6,7 @@ class EventsController < ApplicationController
   def create
     @user = User.find_by(id: session[:user_id])
     @event = @user.created_events.build(event_params)
-    if @event.save
-
-      redirect_to root_path, notice: 'Event successfully created'
-    end
+    redirect_to root_path, notice: 'Event successfully created' if @event.save
   end
 
   def show

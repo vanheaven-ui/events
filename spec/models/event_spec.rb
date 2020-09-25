@@ -1,26 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  let(:user) { User.create(name: "John Doe") }
+  let(:user) { User.create(name: 'John Doe') }
   let(:event) do
-    user.created_events.new(name: "Rspec tests", description: "Doing tests", 
-              date: "2020-09-20 12:06:29", location: 'virtual')
+    user.created_events.new(name: 'Rspec tests', description: 'Doing tests',
+                            date: '2020-09-20 12:06:29', location: 'virtual')
   end
   let(:event1) do
     user.created_events.new(name: nil, description: 'doing tests',
-              date: '2020-09-30', location: 'Virtual')
+                            date: '2020-09-30', location: 'Virtual')
   end
   let(:event2) do
-    user.created_events.new(name: "Rspec tests", description: nil, 
-              date: "2020-09-20 12:06:29", location: 'virtual')
+    user.created_events.new(name: 'Rspec tests', description: nil,
+                            date: '2020-09-20 12:06:29', location: 'virtual')
   end
   let(:event3) do
-    user.created_events.new(name: "Rspec tests", description: "Doing tests", 
-              date: nil, location: 'virtual')
+    user.created_events.new(name: 'Rspec tests', description: 'Doing tests',
+                            date: nil, location: 'virtual')
   end
   let(:event4) do
-    user.created_events.new(name: "Rspec tests", description: "Doing tests", 
-              date: "2020-09-20 12:06:29", location: nil)
+    user.created_events.new(name: 'Rspec tests', description: 'Doing tests',
+                            date: '2020-09-20 12:06:29', location: nil)
   end
 
   describe 'Associations' do

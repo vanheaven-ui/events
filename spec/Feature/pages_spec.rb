@@ -1,8 +1,10 @@
+# rubocop: disable Metrics/BlockLength
+
 require 'rails_helper'
 
 RSpec.feature 'Views', type: :feature do
   before(:each) do
-    user = User.new(name: "Ezekiel")
+    user = User.new(name: 'Ezekiel')
     user.save
   end
 
@@ -38,3 +40,4 @@ RSpec.feature 'Views', type: :feature do
     end
   end
 end
+# rubocop: enable Metrics/BlockLength
