@@ -4,8 +4,6 @@ RSpec.feature 'Views', type: :feature do
   before(:each) do
     user = User.new(name: "Ezekiel")
     user.save
-    # event = user.created_events.new(name: "Rspec tests", description: "Doing tests", 
-    #                                 date: "2020-09-20 12:06:29", location: 'virtual')
   end
 
   describe 'Sign in' do
