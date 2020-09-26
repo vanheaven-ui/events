@@ -87,7 +87,7 @@ With the installations above complete, you are set to use the code and view the 
 - Once the server starts(Might take about 3-5 minutes), you can access the application by typing localhost:3000 in your browser and striking ``Enter``.
 
 ## Testing <a name = "tests"></a>
-The tests in this repository were written uing Rspec and capybara. So to run these tests successfully on your computer, follow the steps below;
+The tests in this repository were written using Rspec and capybara. So to run these tests successfully on your computer, follow the steps below;
 * Crosscheck to make sure that your Gemfile has _**rails-rspec**_ in the development block and _**capybara**_ in the test block. See this example:
    ```<pre>
     group :development do
