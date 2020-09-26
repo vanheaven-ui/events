@@ -8,7 +8,10 @@
       <% if signed_in? %>
         <li class="navbar-item">
           <%= link_to "Created Events", user_path(current_user), class: "nav-link" %>
-        </li
+        </li>
+        <li class="navbar-item">
+          <%= link_to "All Events", root_path, class: "nav-link", value: "All Events" %>
+        </li>
         <li class="navbar-item">
             <%= link_to "New Event", new_event_path, class: "btn btn-light" %>
         </li>

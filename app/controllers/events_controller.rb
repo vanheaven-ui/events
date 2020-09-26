@@ -4,8 +4,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(id: session[:user_id])
-    @event = @user.created_events.build(event_params)
+    @event = current_user.created_events.build(event_params)
     redirect_to root_path, notice: 'Event successfully created' if @event.save
   end
 
