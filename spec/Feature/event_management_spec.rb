@@ -12,7 +12,6 @@ RSpec.feature 'Event_Management', type: :feature do
 
       visit '/events/new'
       expect(page).to have_text('Create an Event')
-      
     end
   end
 

@@ -1,5 +1,3 @@
-# rubocop: disable Metrics/BlockLength
-
 require 'rails_helper'
 
 RSpec.feature 'Authentication', type: :feature do
@@ -33,4 +31,3 @@ RSpec.feature 'Authentication', type: :feature do
     end
   end
 end
-# rubocop: enable Metrics/BlockLength
