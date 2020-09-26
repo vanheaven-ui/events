@@ -12,9 +12,9 @@
     <p><strong>Location: </strong><%= @event.location%></p>
 
     <h4><%= pluralize(@event.event_attendees.count, "Attendee") %></h4>
-    <ul>
+    <ul class="list-unstyled">
       <% @event.event_attendees.each do |attendee| %>
-        <li><%= link_to attendee.name, user_path(attendee) %></li>
+        <li>+ <%= link_to attendee.name, user_path(attendee) %></li>
       <% end %>
     </ul>
     <%= render 'events/attend' %>

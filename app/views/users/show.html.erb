@@ -4,18 +4,25 @@
     <%= link_to "Edit profile", edit_user_path(@user) %>
   </div>
   <div class="card-body">
-    <h4><%= pluralize(@user.created_events.count, "event") %> created</h4>
-    <ul class="list-unstyled">
-      <% @user.created_events.each do |event| %>
-        <li>+ <%= link_to event.name, event_path(event) %></li>
-      <% end %>
-    </ul>
-    <h4><%= pluralize(@user.attended_events.count, "Event") %> as Attendee</h4>
-    <ul class="list-unstyled">
-      <% @user.attended_events do |event| %>
-        <li>+ <%= link_to event.name, event_path(event) %></li>
-      <% end %>
-    </ul>
+    <h3><%= pluralize(@user.created_events.count, "event") %> created</h3>
+    <%= render 'users/events' %>
+    <h3><%= pluralize(@user.attended_events.count, "Event") %> as Attendee</h3>
+    <div class="previous">
+      <h5>Previously Attended Events</h5>
+      <ul class="list-unstyled">
+        <% @previously_attended_events.each do |event| %>
+          <li>+ <%= link_to event.name, event_path(event) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="to_attend">
+      <h5>Events to Attend</h5>
+      <ul class="list-unstyled">
+        <% @to_attend_events.each do |event| %>
+          <li>+ <%= link_to event.name, event_path(event) %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
   <%= link_to "Home", root_url, class: "pl-3" %>
 </div>
