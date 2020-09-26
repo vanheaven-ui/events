@@ -1,12 +1,6 @@
-<h5>Upcoming</h5>
+<!-- <h5>Upcoming</h5> -->
 <ul class="list-unstyled">
-  <% @upcoming_events.each do |event| %>
-    <li>+ <%= link_to event.name, event_path(event) %></li>
-  <% end %>
-</ul>
-<h5>Previous</h5>
-<ul class="list-unstyled">
-  <% @previous_events.each do |event| %>
+  <% @created_events.each do |event| %>
     <li>+ <%= link_to event.name, event_path(event) %></li>
   <% end %>
 </ul>

@@ -1,6 +1,6 @@
 class EventAttendingsController < ApplicationController
   def create
-    @event = Event.find_by(id: params[:event_id])
+    @event = Event.find(params[:id])
     if @event.event_attendees.include? current_user
       flash[:alert] = 'You are already an attendee'
     else
