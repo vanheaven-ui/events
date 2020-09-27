@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Authentication', type: :feature do
+RSpec.feature 'Authentication', type: :feature do # rubocop: disable Metrics/BlockLength
   before(:each) do
     user = User.new(name: 'Ezekiel')
     user.save
@@ -30,7 +30,7 @@ RSpec.feature 'Authentication', type: :feature do
       expect(page).to have_text('You have signed up succesfully, please sign in')
     end
 
-    scenario 'User cannot sign up' do
+    scenario 'User can cancel sign up' do
       visit '/users/new'
       fill_in 'user[name]', with: ''
       click_button 'Sign Up'
