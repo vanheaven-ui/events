@@ -17,7 +17,7 @@ RSpec.describe 'Model', type: :model do
     end
 
     describe 'Associations' do
-      it { should have_many (:created_events) }
+      it { should have_many :created_events }
     end
   end
 end

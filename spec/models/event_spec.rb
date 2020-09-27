@@ -16,7 +16,7 @@ RSpec.describe 'Model', type: :model do
                               date: '2050-09-20 12:06:29', location: 'virtual')
     end
     let(:event3) do
-      user.created_events.new(name: 'Rspec tests', description: 'Doing tests', 
+      user.created_events.new(name: 'Rspec tests', description: 'Doing tests',
                               date: nil, location: 'virtual')
     end
     let(:event4) do
@@ -25,19 +25,19 @@ RSpec.describe 'Model', type: :model do
     end
 
     describe 'Associations' do
-      it { should belong_to (:creator) }
+      it { should belong_to :creator }
 
-      it { should have_many (:event_attendees) }
+      it { should have_many :event_attendees }
     end
 
     context 'has valid attributes' do
-      it { should validate_presence_of (:name) }
+      it { should validate_presence_of :name }
 
-      it { should validate_presence_of (:description) }
+      it { should validate_presence_of :description }
 
-      it { should validate_presence_of (:date) }
-      
-      it { should validate_presence_of (:location) }
+      it { should validate_presence_of :date }
+
+      it { should validate_presence_of :location }
     end
 
     context 'has invalid attributes' do
