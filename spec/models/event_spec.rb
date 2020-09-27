@@ -8,54 +8,52 @@ RSpec.describe 'Model', type: :model do
                               date: '2020-09-20 12:06:29', location: 'virtual')
     end
     let(:event1) do
-      user.created_events.new(name: nil, description: 'doing tests',
-                              date: '2020-09-30', location: 'Virtual')
+      user.created_events.new(name: nil, description: 'Doing tests',
+                              date: '2050-09-20 12:06:29', location: 'virtual')
     end
     let(:event2) do
       user.created_events.new(name: 'Rspec tests', description: nil,
-                              date: '2020-09-20 12:06:29', location: 'virtual')
+                              date: '2050-09-20 12:06:29', location: 'virtual')
     end
     let(:event3) do
-      user.created_events.new(name: 'Rspec tests', description: 'Doing tests',
+      user.created_events.new(name: 'Rspec tests', description: 'Doing tests', 
                               date: nil, location: 'virtual')
     end
     let(:event4) do
       user.created_events.new(name: 'Rspec tests', description: 'Doing tests',
-                              date: '2020-09-20 12:06:29', location: nil)
+                              date: '2050-09-20 12:06:29', location: nil)
     end
 
     describe 'Associations' do
-      it 'should belong to creator' do
-        c = Event.reflect_on_association(:creator)
-        expect(c.macro).to eq :belongs_to
-      end
+      it { should belong_to (:creator) }
 
-      it 'shoud have many event_attendees' do
-        a = Event.reflect_on_association(:event_attendees)
-        expect(a.macro).to eq :has_many
-      end
+      it { should have_many (:event_attendees) }
     end
 
     context 'has valid attributes' do
-      it 'is valid' do
-        expect(event.valid?).to eq true
-      end
+      it { should validate_presence_of (:name) }
+
+      it { should validate_presence_of (:description) }
+
+      it { should validate_presence_of (:date) }
+      
+      it { should validate_presence_of (:location) }
     end
 
     context 'has invalid attributes' do
-      it 'is invalid when name is falsy' do
+      it 'is invalid if name is falsy' do
         expect(event1.valid?).to eq false
       end
 
-      it 'is invalid when description is falsy' do
+      it 'is invalid if description is falsy' do
         expect(event2.valid?).to eq false
       end
 
-      it 'is invalid when date is falsy' do
+      it 'is invalid if date is falsy' do
         expect(event3.valid?).to eq false
       end
 
-      it 'is invalid when location is falsy' do
+      it 'is invalid if location is falsy' do
         expect(event4.valid?).to eq false
       end
     end

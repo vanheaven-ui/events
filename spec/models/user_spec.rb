@@ -17,10 +17,7 @@ RSpec.describe 'Model', type: :model do
     end
 
     describe 'Associations' do
-      it 'has_many created events' do
-        e = User.reflect_on_association(:created_events)
-        expect(e.macro).to eq :has_many
-      end
+      it { should have_many (:created_events) }
     end
   end
 end
