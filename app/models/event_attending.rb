@@ -1,4 +1,4 @@
 class EventAttending < ApplicationRecord
-  belongs_to :User
+  belongs_to :user
   belongs_to :event
 end
