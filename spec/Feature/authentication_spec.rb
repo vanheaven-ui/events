@@ -29,5 +29,25 @@ RSpec.feature 'Authentication', type: :feature do
       click_button 'Sign Up'
       expect(page).to have_text('You have signed up succesfully, please sign in')
     end
+
+    scenario 'User cannot sign up' do
+      visit '/users/new'
+      fill_in 'user[name]', with: ''
+      click_button 'Sign Up'
+      expect(page).to have_text('Sign Up')
+      click_link 'Cancel'
+      expect(page).to have_text('Sign in')
+    end
+  end
+
+  describe 'Sign Out' do
+    scenario 'User can signout successfully' do
+      visit '/sign_in'
+      fill_in :name, with: :Ezekiel
+      click_button 'Sign in'
+      expect(page).to have_text('Successfully signed in, cheers!')
+      click_link 'Sign Out'
+      expect(page).to have_text('Successfully signed out!')
+    end
   end
 end
