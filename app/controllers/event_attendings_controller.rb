@@ -11,6 +11,6 @@ class EventAttendingsController < ApplicationController
   private
 
   def attending_params
-    params.require(:event_attending).permit(:event_id)
+    params.permit(:event_id)
   end
 end
