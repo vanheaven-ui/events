@@ -1,6 +1,4 @@
 class EventAttendingsController < ApplicationController
-  def  new; end
-
   def create
     @event_attending = EventAttending.new(event_id: attending_params[:event_id], user_id: current_user.id)
     if @event_attending.save
