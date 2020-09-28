@@ -27,6 +27,10 @@ This project is about building an application where users can create and schedul
 ## About <a name = "about"></a>
 This project involves creating a simple ruby on rails application with a simple user sign in by name. The sign in is authenticable against user sign up. Once a user is able to sign into the application, a list of events curated by whether they are upcoming or they have ended is presented to the user. The user can click each event to see more details about it. More so, the user can edit their profile and they can see how many events they have created and how many events they have attended. A user is also able to create their own events by clicking the ``New Event`` item in the top navigation bar.
 
+## App Deployment
+The built app was deployed to heroku. Follow [Heroku deployment for rails 6.X](https://devcenter.heroku.com/articles/getting-started-with-rails6) for details on how to deploy a rails app to heroku.
+To view the live version of the app, [Click here!](https://hidden-ridge-18027.herokuapp.com/)
+
 ## Pre-coding Planning
 Before writing code, the the following constituted the blueprint. 
 
