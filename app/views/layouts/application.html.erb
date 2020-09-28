@@ -10,6 +10,18 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <div class="text-center">
+        <span class="alert alert-success"><%= notice%></span>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="text-center">
+        <span class="alert alert-danger"><%= alert %></span>
+      </div>
+    <% end %>
+    <%= render 'users/nav' %>
     <%= yield %>
   </body>
 </html>

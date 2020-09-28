@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="text-white bg-dark text-center">Upcoming Events</h3>
+        <% @upcoming_events.each do |event| %>
+          <%= link_to event_path(event), class: "text-secondary", title: "Click to see more..." do %>
+            <ul class="list-group shadow  mb-3">
+              <li class="list-group-item list-group-item-success">
+                <p>
+                  <strong>Created By: </strong>
+                  <%= event.creator.name %> on 
+                  <%= event.created_at.strftime('%a, %d-%b-%Y') %>
+                </p>
+                <h4>Event: <%= event.name %></h4>
+              </li>
+              <li class="list-group-item">
+                <span><strong>Happening On: </strong></span><%= event.date.strftime('%a, %d-%b-%Y') %>
+              </li>
+              <li class="list-group-item">
+                <span><strong>Location: </strong></span><%= event.location %>
+              </li>
+              <%= link_to "Attend", event_path(event), class: "btn btn-success" %>
+            </ul>
+          <% end %>
+        <% end %>
+    </div>
+    <div class="col-md-6">
+      <h3 class="text-white bg-dark text-center">Previous Events</h3>
+      <% @previous_events.each do |event| %>
+        <%= link_to event_path(event), class: "text-secondary", title: "Click to see more..." do %>
+          <ul class="list-group shadow  mb-3">
+            <li class="list-group-item list-group-item-danger">
+              <p>
+                <strong>Created By: </strong>
+                <%= event.creator.name %> on 
+                <%= event.created_at.strftime('%a, %d-%b-%Y') %>
+              </p>
+              <h4>Event: <%= event.name %></h4>
+            </li>
+            <li class="list-group-item">
+              <span><strong>Happening On: </strong></span><%= event.date.strftime('%a, %d-%b-%Y') %>
+            </li>
+            <li class="list-group-item">
+              <span><strong>Location: </strong></span><%= event.location %>
+            </li>
+          </ul>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
