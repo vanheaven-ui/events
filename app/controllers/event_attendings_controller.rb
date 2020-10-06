@@ -1,16 +1,11 @@
 class EventAttendingsController < ApplicationController
   def create
-    @event_attending = EventAttending.new(event_id: attending_params[:event_id], user_id: current_user.id)
-    if @event_attending.save
-      redirect_to root_path, notice: 'Attendance confirmed'
+    @event = Event.find(params[:event_id])
+    if @event.event_attendees.include? current_user
+      redirect_to event_path(@event), alert: 'You are already attendee'
     else
-      redirect_to root_path, alert: 'Unable to confirm, Feature under construction. Use console'
+      @event.event_attendees << current_user
+      redirect_to event_path(@event), notice: 'Attendance confirmed'
     end
-  end
-
-  private
-
-  def attending_params
-    params.permit(:event_id)
   end
 end

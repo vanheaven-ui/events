@@ -1,6 +1,6 @@
 <div class="card w-50 mx-auto">
   <p class="p-3 mb-0">
-    <strong>Created By:</strong> <%= link_to @event.creator.name, user_path(current_user) %>
+    <strong>Created By:</strong> <%= @event.creator.name %>
     on <%= @event.created_at.strftime('%a, %d-%b-%Y') %>
   </p>
   <div class="card-header text-white bg-dark d-flex justify-content-between">
@@ -14,7 +14,11 @@
     <h4><%= pluralize(@event.event_attendees.count, "Attendee") %></h4>
     <ul class="list-unstyled">
       <% @event.event_attendees.each do |attendee| %>
-        <li>+ <%= link_to attendee.name, user_path(attendee) %></li>
+        <% if attendee == current_user %>
+          <li>+ <%= link_to current_user.name, user_path(current_user) %></li>
+        <% else %>
+          <li>+ <%= attendee.name %></li>
+        <% end %>  
       <% end %>
     </ul>
     <%= render 'events/attend' %>
